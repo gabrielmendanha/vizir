@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { CalculadoraLigacaoComponent } from '@core/calculadora-ligacao/calculadora-ligacao.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormularioComponent } from '@core/calculadora-ligacao/formulario/formulario.component';
+import { ResultadoComponent } from '@core/calculadora-ligacao/resultado/resultado.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CalculadoraLigacaoComponent,
-    FormularioComponent
+    FormularioComponent,
+    ResultadoComponent
   ],
   imports: [
     BrowserModule,

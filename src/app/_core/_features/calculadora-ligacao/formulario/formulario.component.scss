@@ -84,7 +84,7 @@ select:after {
 .calculadora__submit-container {
   display: flex;
   align-items: center;
-  bottom: -10px;
+  bottom: 195px;
   position: absolute;
   left: 0;
   right: 0;
@@ -116,6 +116,10 @@ select:after {
 }
 
 @media screen and (max-width: 26.5625rem) {
+  .calculadora__submit-container {
+    bottom: 385px;
+  }
+
   .calculadora__param {
     padding-top: 0.625rem;
     padding-right: 0;

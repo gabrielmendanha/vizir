@@ -24,4 +24,8 @@ export class FormularioComponent implements OnInit {
     return this._calculadora;
   }
 
+  public simular(): void {
+    return;
+  }
+
 }

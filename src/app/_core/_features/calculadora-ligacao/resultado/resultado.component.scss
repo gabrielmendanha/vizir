@@ -1,0 +1,52 @@
+.resultado__container {
+  display: flex;
+  margin: 0.625rem;
+  margin-top: 3.125rem;
+  justify-content: space-around;
+}
+
+.resultado__card {
+  box-shadow: 0 1px 3px rgba(60,64,67, 0.3), 0 4px 8px 3px rgba(60,64,67, 0.15);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.9375rem;
+}
+
+.resultado__preco-container {
+  display: flex;
+  justify-content: center;
+}
+
+.resultado__preco {
+  display: flex;
+  align-items: start;
+}
+
+.resultado__moeda {
+  margin-top: 0.3125rem;
+  margin-right: 0.625rem;
+  font-size: 1rem;
+}
+
+.resultado__valor {
+  font-size: 3.375rem;
+  line-height: 3.125rem;
+}
+
+.resultado__valor-centavos {
+  margin-top: 0.3125rem;
+  margin-left: 0.625rem;
+}
+
+@media screen and (max-width: 26.5625rem) {
+  .resultado__container {
+    flex-direction: column;
+    margin-top: 2.5rem;
+  }
+
+  .resultado__card {
+    margin-bottom: 1.875rem;
+  }
+}
