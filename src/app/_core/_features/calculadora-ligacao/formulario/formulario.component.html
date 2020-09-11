@@ -1,0 +1,58 @@
+<form>
+  <div class="calculadora__card">
+    <div class="calculadora__param">
+      <label for="origem">DDD de Origem</label>
+      <div class="calculadora__input-container">
+        <select id="origem" class="calculadora__input">
+          <option disabled selected>Selecione</option>
+          <option>011</option>
+          <option>012</option>
+          <option>013</option>
+          <option>014</option>
+          <option>015</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calculadora__param">
+      <label for="destino">DDD de Destino</label>
+      <div class="calculadora__input-container">
+        <select id="destino" class="calculadora__input">
+          <option disabled selected>Selecione</option>
+          <option>011</option>
+          <option>012</option>
+          <option>013</option>
+          <option>014</option>
+          <option>015</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calculadora__param">
+      <label for="plano">Plano FaleMais</label>
+      <div class="calculadora__input-container">
+        <select id="plano" class="calculadora__input">
+          <option disabled selected>Selecione</option>
+          <option>FaleMais 30</option>
+          <option>FaleMais 60</option>
+          <option>FaleMais 120</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calculadora__param">
+      <label for="tempo">Tempo de Chamada</label>
+      <div class="calculadora__input-container">
+        <input id="tempo" type="number" min="1" placeholder="Preencha" class="calculadora__input">
+        <fa-icon class="calculadora__input-image" [icon]="getTempoIcon()" aria-hidden="true"></fa-icon>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="calculadora__submit-container">
+  <button class="calculadora__submit-button">
+    <fa-icon class="fa-sm" [icon]="getSubmitIcon()" aria-hidden="true"></fa-icon>
+    <span class="calculadora__submit-button-label">Simular</span>
+  </button>
+</div>

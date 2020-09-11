@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/colors';
+
+body,html {
+  margin: 0;
+  padding: 0;
+  color: $ink-color;
+  font-family: 'source-sans-regular', sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
