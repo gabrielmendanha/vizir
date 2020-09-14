@@ -7,6 +7,7 @@ import { CalculadoraLigacaoComponent } from '@core/calculadora-ligacao/calculado
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormularioComponent } from '@core/calculadora-ligacao/formulario/formulario.component';
 import { ResultadoComponent } from '@core/calculadora-ligacao/resultado/resultado.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ResultadoComponent } from '@core/calculadora-ligacao/resultado/resultad
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,26 +4,40 @@
   position: relative;
 }
 
-.calculadora__input-container input[type="number"] {
+.calculadora__input-container input {
   padding-left: 2.1875rem;
 }
 
-input[type="number"], select {
+.calculadora__label-container {
+  display: flex;
+
+  fa-icon {
+    margin-left: 0.1875rem;
+    font-size: 0.3125rem;
+  }
+}
+
+.calculadora__label-container--error {
+  fa-icon {
+    color: $red;
+  }
+}
+
+input, select {
   border: 1px solid $dark-white;
   border-radius: 0.25rem;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 0.1875rem;
   outline: none;
   padding: 0.5rem;
   box-sizing: border-box;
-  transition: 0.3s;
+
+  &:focus {
+    border-color: $blue;
+    box-shadow: 0 0 8px 0 $blue;
+  }
 }
 
-input[type="number"]:focus, select:focus {
-  border-color: $blue;
-  box-shadow: 0 0 8px 0 $blue;
-}
-
-.calculadora__input-container input[type="number"]:focus + fa-icon {
+.calculadora__input-container input:focus + fa-icon {
   color: $blue;
 }
 
@@ -40,7 +54,9 @@ select:after {
   transition: 0.3s;
 }
 
-
+.calculadora__input-container--error fa-icon {
+  transition: unset;
+}
 
 .calculadora__card {
   display: flex;
@@ -66,11 +82,6 @@ select:after {
     margin-bottom: 0.3125rem;
     white-space: nowrap;
   }
-}
-
-.calculadora__input {
-  height: 48px;
-  min-width: 120px;
 }
 
 .calculadora__input-container {
@@ -113,6 +124,33 @@ select:after {
 
 .calculadora__submit-button-label {
   padding: 0 1rem 0 0.5rem;
+}
+
+.calculadora__input--error {
+  background: $light-red;
+  color: $red;
+  border: 1px solid $red;
+
+  &:focus {
+    box-shadow: 0 0 8px 0 $red;
+    border-color: $red;
+  }
+
+  &::placeholder, .calculadora__input-container &:focus + fa-icon, .calculadora__input-container & + fa-icon {
+    color: $red;
+  }
+}
+
+.calculadora__input-error-label {
+  color: $red;
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+.calculadora__input {
+  height: 48px;
+  min-width: 120px;
+  margin-bottom: 3px;
 }
 
 @media screen and (max-width: 26.5625rem) {
