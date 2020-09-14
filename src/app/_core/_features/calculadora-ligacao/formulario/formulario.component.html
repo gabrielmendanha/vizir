@@ -77,8 +77,8 @@
 </form>
 
 <div class="calculadora__submit-container">
-  <button class="calculadora__submit-button">
+  <button class="calculadora__submit-button" (click)="simular()">
     <fa-icon class="fa-sm" [icon]="getSubmitIcon()" aria-hidden="true"></fa-icon>
-    <span class="calculadora__submit-button-label" (click)="simular()" >Simular</span>
+    <span class="calculadora__submit-button-label" >Simular</span>
   </button>
 </div>

@@ -38,17 +38,25 @@ export class Tarifa {
     ])]
   ]);
 
-  constructor(tempo: number, origem: number, destino: number) {
-    this.tempo = tempo;
-    this.origem = origem;
-    this.destino = destino;
+  constructor(tempo, origem, destino) {
+    this.tempo = parseInt(tempo, 10);
+    this.origem = parseInt(origem, 10);
+    this.destino = parseInt(destino, 10);
   }
 
   public calcularValorTarifa(params: CalculadoraParams): number {
     return;
   }
 
-  public isTarifaValida(params: CalculadoraParams): void {
-    return;
+  public validar(): boolean {
+    const destinos = this.tarifa.get(this.origem);
+
+    if (!destinos) { return false; }
+
+    const valorBaseTarifa = destinos.has(this.destino);
+
+    if (!valorBaseTarifa) { return false; }
+
+    return true;
   }
 }

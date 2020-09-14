@@ -39,11 +39,16 @@ export class FormularioComponent implements OnInit {
   }
 
   public simular(): void {
-    const { valid } = this.form;
+    try {
+      const { valid } = this.form;
 
-    if (!valid) { return; }
+      if (!valid) { return; }
 
-    this._formularioService.calcularValorLigacao({ ...this.form.value });
+      const valor = this._formularioService.calcularValorLigacao({ ...this.form.value });
+
+    } catch (error) {
+      this.form.get('destino').setErrors({ ligacaoInvalida: true });
+    }
   }
 
   public isFormValid(): boolean {
@@ -72,6 +77,10 @@ export class FormularioComponent implements OnInit {
 
   public getErrorMessage(campo: AbstractControl): string {
     const { dirty, touched } = campo;
+
+    const { ligacaoInvalida } = campo.errors ?? { ligacaoInvalida: false };
+
+    if (ligacaoInvalida) { return 'Destino inválido'; }
 
     const hasMinError = campo.hasError('min');
 
