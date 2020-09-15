@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { faCalculator, faHourglass, faAsterisk, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormularioService } from '@core/calculadora-ligacao/formulario/formulario.service';
+import {TipoPlano} from '@core/calculadora-ligacao/formulario/formulario.models';
+import { CalculadoraLigacaoService } from '@core/calculadora-ligacao/calculadora-ligacao.service';
 
 @Component({
   selector: 'app-formulario',
@@ -21,7 +23,7 @@ export class FormularioComponent implements OnInit {
     tempo: new FormControl(null, [Validators.required, Validators.min(1)])
   });
 
-  constructor(private _formularioService: FormularioService) { }
+  constructor(private _formularioService: FormularioService, private _calculadoraLigacaoService: CalculadoraLigacaoService) { }
 
   ngOnInit(): void {
   }
@@ -44,10 +46,11 @@ export class FormularioComponent implements OnInit {
 
       if (!valid) { return; }
 
-      const valor = this._formularioService.calcularValorLigacao({ ...this.form.value });
+      this._formularioService.calcularValorLigacao({ ...this.form.value });
 
     } catch (error) {
       this.form.get('destino').setErrors({ ligacaoInvalida: true });
+      this._calculadoraLigacaoService.zerarCampos();
     }
   }
 
@@ -69,6 +72,10 @@ export class FormularioComponent implements OnInit {
 
   public get plano(): AbstractControl  {
     return this.form.get('plano');
+  }
+
+  public get TipoPlano(): typeof TipoPlano {
+    return TipoPlano;
   }
 
   public showError(campo: AbstractControl): boolean {

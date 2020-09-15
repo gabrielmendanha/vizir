@@ -1,7 +1,7 @@
 export enum TipoPlano {
-  FaleMais30,
-  FaleMais60,
-  FaleMais120,
+  FaleMais30 = 30,
+  FaleMais60 = 60,
+  FaleMais120 = 120,
 }
 
 export interface CalculadoraParams {
@@ -11,15 +11,11 @@ export interface CalculadoraParams {
   tempo: number;
 }
 
-export interface ValorParaExibicao {
-  total: string;
-  centavos: string;
-}
-
 export class Tarifa {
   private tempo: number;
   private origem: number;
   private destino: number;
+  private plano: TipoPlano;
 
   private tarifa = new Map([
     [11, new Map([
@@ -38,14 +34,27 @@ export class Tarifa {
     ])]
   ]);
 
-  constructor(tempo, origem, destino) {
+  constructor(tempo, origem, destino, plano) {
     this.tempo = parseInt(tempo, 10);
     this.origem = parseInt(origem, 10);
     this.destino = parseInt(destino, 10);
+    this.plano = parseInt(plano, 10);
   }
 
-  public calcularValorTarifa(params: CalculadoraParams): number {
-    return;
+  public calcularValorTarifaComPlano(): number {
+    const tempoPago = this.tempo - this.plano;
+
+    if (tempoPago < 0) { return 0; }
+
+    const tarifa = this._getTarifa();
+
+    const tarifaComAcrescimo = (tarifa + (tarifa * 0.1));
+
+    return parseFloat((tempoPago * tarifaComAcrescimo).toFixed(2));
+  }
+
+  public calcularValorTarifaSemPlano(): number {
+    return parseFloat((this._getTarifa() * this.tempo).toFixed(2));
   }
 
   public validar(): boolean {
@@ -58,5 +67,10 @@ export class Tarifa {
     if (!valorBaseTarifa) { return false; }
 
     return true;
+  }
+
+  private _getTarifa(): number {
+    const destinos = this.tarifa.get(this.origem);
+    return destinos.get(this.destino);
   }
 }

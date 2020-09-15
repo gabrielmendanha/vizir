@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
-import {CalculadoraParams, ValorParaExibicao, Tarifa} from '@core/calculadora-ligacao/formulario/formulario.models';
-import {throwError} from 'rxjs';
+import { CalculadoraParams, Tarifa } from '@core/calculadora-ligacao/formulario/formulario.models';
+import { CalculadoraLigacaoService } from '@core/calculadora-ligacao/calculadora-ligacao.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormularioService {
 
-  constructor() { }
+  constructor(private _calculadoraLigacaoService: CalculadoraLigacaoService) { }
 
-  private _transformarValorParaExibicao(valor: number): ValorParaExibicao {
-    return { total: '1', centavos: '98' };
-  }
+  public calcularValorLigacao(params: CalculadoraParams): void | never {
+    const { tempo, origem, destino, plano } = params;
 
-  public calcularValorLigacao(params: CalculadoraParams): ValorParaExibicao {
-    const { tempo, origem, destino } = params;
-
-    const tarifa = new Tarifa(tempo, origem, destino);
+    const tarifa = new Tarifa(tempo, origem, destino, plano);
 
     const isLigacaoValida: boolean = tarifa.validar();
 
     if (!isLigacaoValida) { throw Error; }
 
-    const valor = tarifa.calcularValorTarifa(params);
+    const valorComPlano = tarifa.calcularValorTarifaComPlano();
 
-    return this._transformarValorParaExibicao(valor);
+    const valorSemPlano = tarifa.calcularValorTarifaSemPlano();
+
+    this._calculadoraLigacaoService.resultadoComPlano.emit(valorComPlano);
+
+    this._calculadoraLigacaoService.resultadoSemPlano.emit(valorSemPlano);
   }
 }

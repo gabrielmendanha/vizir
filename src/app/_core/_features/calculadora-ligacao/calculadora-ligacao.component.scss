@@ -1,4 +1,4 @@
-.calculadora__container {
+.app__container {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 26.5625rem) {
-  .calculadora__container {
+  .app__container {
     top: 65%;
   }
 }
