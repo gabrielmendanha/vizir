@@ -1,27 +1,63 @@
-# Vizir
+# Vizir - FaleMais
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
+[![build](https://img.shields.io/badge/build-passing-green)](build) [![license](https://img.shields.io/badge/license-MIT-blue)](license)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Índice
 
-## Code scaffolding
+* [Índice](#ndice)
+* [Sobre o Projeto](#sobre-o-projeto)
+    * [Feito Com](#feito-com)
+* [Iniciando](#iniciando)
+    * [Pré-requisitos](#pr-requisitos)
+    * [Execução do Projeto](#execuo-do-projeto)
+    * [Execução de Testes Unitários](#execuo-de-testes-unitrios)
+* [Licença](#licena)
+* [Contato](#contato)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Sobre o Projeto
 
-## Build
+_Uma simples interface gráfica que calcula o valor de uma ligação. Construído para fins de aprendizado._ 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Feito Com
 
-## Running unit tests
+- [Angular](https://www.angular.io/) - é um framework de código aberto usado para construir aplicativos para web baseados em uma única página dinâmica.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Iniciando
 
-## Running end-to-end tests
+### Pré-requisitos
+   * Node v14.x
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Execução do projeto
+    $ npm install
+    $ npm start
+    
+ ### Execução de testes unitários
+    $ npm test
+    
+ # Licença 
 
-## Further help
+The MIT License (MIT)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Copyright (c) [2020] [Gabriel Oliveira Mendanha](https://github.com/gabrielmendanha)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Contato
+
+Gabriel Mendanha - [Linkedin](https://www.linkedin.com/in/gabriel-oliveira-mendanha-16261a79/)
