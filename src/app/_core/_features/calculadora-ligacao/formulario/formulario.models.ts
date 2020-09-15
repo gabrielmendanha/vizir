@@ -62,11 +62,7 @@ export class Tarifa {
 
     if (!destinos) { return false; }
 
-    const valorBaseTarifa = destinos.has(this.destino);
-
-    if (!valorBaseTarifa) { return false; }
-
-    return true;
+    return destinos.has(this.destino);
   }
 
   private _getTarifa(): number {
